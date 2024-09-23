@@ -517,6 +517,14 @@ img {
 }
 
 
+.skills__ae {
+  width: 85%;
+}
+
+.skills__cc {
+  width: 88%;
+}
+
 .skills__pp {
   width: 80%;
 }
@@ -535,16 +543,6 @@ img {
 
 .skills__in {
   width: 75%;
-}
-
-
-
-.skills__js {
-  width: 60%;
-}
-
-.skills__react {
-  width: 40%;
 }
 
 .skills__php {
