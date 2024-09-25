@@ -199,7 +199,7 @@ I am an experienced video editor, content creator, and social media manager with
             <div data-aos="fade-up" class="skills__container container grid">
                 <div>
                      <!--==================== SKILL 1 ====================-->
-                     <div class="skills__content skills__open">
+                     <div class="skills__content skills__close">
                         <div class="skills__header">
                             <i class="uli uil-align-right skills__icon"></i>
 
@@ -331,7 +331,6 @@ I am an experienced video editor, content creator, and social media manager with
                     <div class="skills__content skills__close">
                         <div class="skills__header">
                             <i class="uli uil-chat-bubble-user skills__icon"></i>
-
                             <div>
                                 <h1 class="skills__title">Social Media Manager</h1>
                                 <span class="skills__subtitle">More than 2 years</span>
@@ -618,20 +617,19 @@ I am an experienced video editor, content creator, and social media manager with
                 </div>
             </div>
         </div>
-
-
                 
             </div>
         </section>
 
+
+        
         <!--==================== PORTFOLIO ====================-->
-        <section class="portfolio section" id="portfolio">
+        <!-- <section class="portfolio section" id="portfolio">
             <h2 class="section__title">Portfolio</h2>
             <span class="section__subtitle">Most recent work</span>
 
             <div data-aos="fade-right" class="portfolio__container container swiper-container">
                 <div class="swiper-wrapper">
-                    <!--==================== PORTFOLIO 1 ====================-->
                     <div class="portfolio__content grid swiper-slide">
 
                         <video src="./Gazal_work/video1.MP4" alt="" class="portfolio__img" width="220px" height="120px" controls loop></video>
@@ -645,7 +643,6 @@ I am an experienced video editor, content creator, and social media manager with
                             </a>
                         </div>
                     </div>
-                    <!--==================== PORTFOLIO 2 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <video src="./Gazal_work/video1.MOV" alt="" class="portfolio__img" width="220px" height="120px" controls loop></video>
                     
@@ -659,7 +656,6 @@ I am an experienced video editor, content creator, and social media manager with
                             </a>
                         </div>
                     </div>
-                    <!--==================== PORTFOLIO 3 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <video src="./Gazal_work/video2.MOV" alt="" class="portfolio__img" width="220px" height="120px" controls loop></video>
 
@@ -675,7 +671,6 @@ I am an experienced video editor, content creator, and social media manager with
                 </div>
 
 
-                <!-- Add Arrows -->
                 <div class="swiper-button-next">
                     <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
                 </div>
@@ -683,13 +678,34 @@ I am an experienced video editor, content creator, and social media manager with
                     <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
                 </div>
 
-                <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
-        </section>
+        </section> -->
 
-      
 
+        <!--This is new wall  -->
+
+        <div class="container portfolio__container">
+            <h1>Portfolio</h1>
+            <div class="video-container">
+                <video onclick="openVideoDialog('./Gazal_work/Inf1.MP4')" src="./Gazal_work/Inf1.MP4" muted></video>
+                <video onclick="openVideoDialog('./Gazal_work/Event1.mp4')" src="./Gazal_work/Event1.mp4" muted></video>
+                <video onclick="openVideoDialog('./Gazal_work/bts.MOV')" src="./Gazal_work/bts.MOV" muted></video>
+                <video onclick="openVideoDialog('./Gazal_work/adv.MP4')" src="./Gazal_work/adv.MP4" muted></video>
+                <video onclick="openVideoDialog('./Gazal_work/Inf2.MP4')" src="./Gazal_work/Inf2.MP4" muted></video>
+                <video onclick="openVideoDialog('./Gazal_work/promo2.MP4')" src="./Gazal_work/promo2.MP4" muted></video>
+            </div>
+            <div id="popup-video" class="popup-video">
+                <button id="popup-video__close_btn" onclick="closeVideoDialog()">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                    </svg>
+                </button>
+                <span id="popup-video__description">Video</span>
+                <video id="popup-video__src" src="" autoplay controls></video>
+            </div>
+            </div>
+        </div>
        
        
         <!--==================== CONTACT ME ====================-->
@@ -820,6 +836,27 @@ I am an experienced video editor, content creator, and social media manager with
             offset: 300,
             duration: 2000
         });
+    </script>
+
+    <script>
+        let videoDialog__div = document.getElementById('popup-video')
+        let videoDialog__video = document.getElementById('popup-video__src')
+        let videoDialog__videoDescription = document.getElementById('popup-video__description')
+
+        function openVideoDialog(src) {
+            videoDialog__div.style.transform = "scale(1)"
+            videoDialog__video.src = src
+            videoDialog__videoDescription.innerHTML = src.split('/')[2]
+            document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
+        }
+
+        function closeVideoDialog() {
+            videoDialog__video.pause()
+            videoDialog__video.currentTime = 0
+            // videoDialog__video.src = null
+            document.getElementsByTagName("BODY")[0].style.overflow = "auto";
+            videoDialog__div.style.transform = "scale(0)"
+        }
     </script>
 
 </body>
